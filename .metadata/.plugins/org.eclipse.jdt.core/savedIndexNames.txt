@@ -1,0 +1,6 @@
+INDEX VERSION 1.126+C:\Users\Keiming\Desktop\AppDev\appdev-tutorials\.metadata\.plugins\org.eclipse.jdt.core
+4198497470.index
+1284074322.index
+3441175534.index
+2250430284.index
+2141448578.index
