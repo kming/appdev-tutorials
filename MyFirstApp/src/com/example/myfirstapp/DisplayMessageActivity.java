@@ -18,12 +18,15 @@ public class DisplayMessageActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		// get message from initiating intent. 
-		Intent intent = getIntent();
-		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+		Intent intent 	= 	getIntent();
+		String message 	= 	intent.getStringExtra(MainActivity.INPUT_MSG_KEY);
+		String title 	= 	intent.getStringExtra(MainActivity.INPUT_TITLE_KEY);
+
+		// Modify title of display message screen to input
+		setTitle (title);
 		
-		// output inputted text
+		// output msg text
 		TextView textView = new TextView(this);
 		textView.setTextSize(40);
 		textView.setText(message);

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General Strings -->
+    <string name="app_name">MyFirstApp</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <!-- ActionBar Buttons  -->
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    
+    <!--  Main Activity Strings -->
+    <string name="edit_message">Enter a message</string>
+    <string name="button_enter">Enter</string>
+    
+    <!--  Display Message Strings -->
+    <string name="title_activity_display_message">Title: Message</string>
+
+</resources>

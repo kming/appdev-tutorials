@@ -1,7 +1,10 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
@@ -14,8 +17,8 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
-	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-	
+	public final static String INPUT_MSG_KEY = "com.example.myfirstapp.INPUT_MESSAGE";
+	public final static String INPUT_TITLE_KEY = "com.example.myfirstapp.TITLE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,15 +51,59 @@ public class MainActivity extends ActionBarActivity {
         		openSearch();
         		return true;
         	case R.id.action_settings:
+        		openSetting();
         		return true;
+        	case R.id.action_enable:
+        		openEnable();
+        		return true; 
         	default:
         		return super.onOptionsItemSelected(item);
         }
     }
 
-    private void openSearch() {
+    private void openEnable() {
+		// TODO Auto-generated method stub
+		// TODO Enables Application
+
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isEnabled = preferences.getBoolean("enabled",  false);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("enabled", !isEnabled);
+        editor.commit();
+       
+	}
+
+
+	private void openSetting() {
 		// TODO Auto-generated method stub
 		
+    	// Switch to Settings Activity
+    	Intent intent = new Intent(this, SettingsActivity.class);
+    	startActivity(intent);    		
+	}
+
+
+	private void openSearch() {
+		// TODO Auto-generated method stub
+		// TODO Temporary debug function of displaying a manual message
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+	    boolean isDebugMode = preferences.getBoolean("DebugMode",  false);
+	    if (isDebugMode) {
+	    	// if Debug --> print message
+	    	
+			// Setup the intent which switches to another activity
+	    	Intent intent = new Intent(this, DisplayMessageActivity.class);
+	    	
+	    	// Find the input text view and save the message
+	    	String title = "OpenSearch";
+	    	String message = "Searching...";
+	    	
+	    	// Pass as a key/value pair to the child intent
+	    	intent.putExtra(INPUT_MSG_KEY, message); 
+	    	intent.putExtra(INPUT_TITLE_KEY, title);
+	    	startActivity(intent);    
+		}
+	
 	}
 
 	/**
@@ -74,13 +121,18 @@ public class MainActivity extends ActionBarActivity {
             return rootView;
         }
     }
-    
+
     /** Called when user enters a message **/
     public void processMessage (View view) {
+    	// Setup the intent which switches to another activity
     	Intent intent = new Intent(this, DisplayMessageActivity.class);
+    	
+    	// Find the input text view and save the message
     	EditText text = (EditText) findViewById(R.id.edit_message);
     	String message = text.getText().toString();
-    	intent.putExtra(EXTRA_MESSAGE, message);
+    	
+    	// Pass as a key/value pair to the child intent
+    	intent.putExtra(INPUT_MSG_KEY, message);
     	startActivity(intent);
     }
 
