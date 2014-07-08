@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IdeaChat</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- Contact Panel Strings -->
+    <string name="convo_panel_img_description">Contact Picture</string>
+    <string name="convo_panel_name">Contact1</string>
+    <string name="convo_panel_description">description</string>
+
+</resources>

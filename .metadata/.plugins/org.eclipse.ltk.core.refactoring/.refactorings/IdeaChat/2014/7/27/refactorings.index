@@ -1,0 +1,14 @@
+1404328966568	Rename resource 'contact_panel.xml'
+1404328980357	Rename resource 'activity_contact_screen.xml'
+1404329026264	Rename type 'ContactScreen'
+1404329044198	Rename resource 'contact_screen.xml'
+1404329106983	Rename resource 'fragment_contact_list.xml'
+1404506561854	Move file
+1404506629979	Delete element
+1404506636020	Delete element
+1404506641946	Delete element
+1404508267044	Rename type 'ConvoScreen'
+1404516602850	Rename type 'ChatActivity'
+1404516643465	Rename resource 'activity_chat.xml'
+1404516653565	Rename resource 'fragment_chat.xml'
+1404516716123	Rename resource 'chat.xml'

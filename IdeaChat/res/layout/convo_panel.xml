@@ -1,0 +1,48 @@
+<!-- Layout File for a contact panel (List Row Adapter)-->
+<!-- General Properties around contact panel -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"  
+    tools:context="com.example.ideachat.ConvoScreen$ConvoPanelFragment"   
+	android:padding="2dip" >
+	
+    <!-- Contact Panel Image Properties -->
+    <ImageView
+        android:id="@+id/convo_panel_img"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="4dip"
+        android:contentDescription="@string/convo_panel_img_description"
+        android:src="@drawable/ic_launcher" />
+	
+    <!-- Contact Panel Primary Line (Contact Name) -->
+    <TextView
+        android:id="@+id/convo_panel_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/convo_panel_img"
+        android:text="@string/convo_panel_name"
+        android:maxLines="1"
+        android:textSize="16sp" />
+    
+    <!-- Contact Panel Secondary Line (Conversation Description) -->
+    <TextView
+        android:id="@+id/convo_panel_description"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/convo_panel_img"
+        android:layout_below="@id/convo_panel_name"
+        android:text="@string/convo_panel_description"
+        android:ellipsize="marquee"
+        android:maxLines="2"
+        android:textSize="12sp" />
+    
+</RelativeLayout>
