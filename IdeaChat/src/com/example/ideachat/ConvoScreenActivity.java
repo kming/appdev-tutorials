@@ -99,6 +99,7 @@ public class ConvoScreenActivity extends ActionBarActivity {
         	// Switch to Chat Activity with the id of the chat
         	Intent intent = new Intent(this.getActivity(), ChatScreenActivity.class);
         	intent.putExtra("chat_id", id);
+        	intent.putExtra("chat_tag", view.getTag().toString());
         	startActivity(intent);    		
         }
     }

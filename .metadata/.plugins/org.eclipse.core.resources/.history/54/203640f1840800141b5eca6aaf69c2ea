@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:focusableInTouchMode="true"
+	android:focusable="true"
+    android:orientation="vertical"
+    tools:context="com.example.ideachat.ChatScreenActivity" >
+
+    <fragment
+        android:id="@+id/chat_fragment"
+        android:name="com.example.ideachat.ChatScreenActivity$PlaceholderFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/chat_screen_input_send"
+        class="com.example.ideachat.ChatScreenActivity$ChatScreenFragment"
+        tools:layout="@layout/fragment_chat_screen" />
+    
+	<ImageButton
+	    android:id="@+id/chat_screen_input_send"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentRight="true"
+        android:src="@drawable/ic_chat_send"
+        android:contentDescription="@string/chat_screen_input_send_description"
+        android:onClick="sendMessage"
+        />
+  	
+   	<EditText
+        android:id="@+id/chat_screen_input_msg"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignTop="@id/chat_screen_input_send"
+	    android:layout_alignParentLeft="true"
+	    android:layout_toLeftOf="@id/chat_screen_input_send"
+        android:hint="@string/chat_screen_input_hint"
+        android:inputType="textMultiLine"
+        android:textStyle="italic"/>
+	   	
+        
+</RelativeLayout>
+   
+

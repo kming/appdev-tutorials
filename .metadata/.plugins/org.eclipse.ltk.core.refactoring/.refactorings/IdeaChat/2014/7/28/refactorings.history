@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;chat_screen_self_msg.xml&apos; to &apos;chat_screen_self_msg.xml&apos;&#x0D;&#x0A;- Original project: &apos;IdeaChat&apos;&#x0D;&#x0A;- Destination element: &apos;chat_screen_self_msg.xml&apos;&#x0D;&#x0A;- Original element: &apos;chat_screen_self_msg.xml&apos;" description="Copy file" element1="res/layout/chat_screen_self_msg.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1404922318459" target="/IdeaChat/res/layout/chat_screen_self_msg.xml" units="0" version="1.0"/>
+</session>

@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_profile">Profile</string>
 
-    <!-- Contact Panel Strings -->
+    <!-- Convo Panel Strings -->
     <string name="convo_panel_img_description">Contact Picture</string>
     <string name="convo_panel_name">Contact1</string>
     <string name="convo_panel_description">description</string>
@@ -16,5 +16,8 @@
     <string name="profile_img_description">Profile Image</string>
     <string name="profile_name">Please Enter a Name</string>
     <string name="title_activity_chat">ChatActivity</string>
-
+    
+    <!-- Chat Screen Strings -->
+	<string name="chat_screen_input_hint">Enter a Message.</string>
+	<string name="chat_screen_input_send_description">Send Button</string>
 </resources>

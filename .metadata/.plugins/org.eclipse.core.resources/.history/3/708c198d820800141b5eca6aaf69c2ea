@@ -1,0 +1,107 @@
+package com.example.ideachat;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.os.Build;
+
+public class ChatScreenActivity extends ActionBarActivity {
+	private long chat_id;
+	private String chat_tag;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_chat_screen);
+		
+		// Determine the ID/tag information
+		Intent intent = getIntent();
+		this.chat_id = intent.getLongExtra("chat_id", -1);
+		this.chat_tag = intent.getStringExtra("chat_tag");
+		assert (this.chat_id != -1);
+		
+		//TextView chat_screen_text = (TextView) this.findViewById(R.id.chat_screen_text);
+		String chat_screen_txt_string = "Chat ID: " + Long.toString(this.chat_id) + " || Chat Tag: " + this.chat_tag;
+		//chat_screen_text.setText(chat_screen_txt_string);
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.chat_screen, menu);
+		return true;
+	}
+
+	public void sendMessage (View view) {
+		 ChatScreenFragment chatFrag = (ChatScreenFragment) getSupportFragmentManager().findFragmentById(R.id.chat_fragment);
+		 EditText inputMsgView = (EditText) this.findViewById(R.id.chat_screen_input_msg);
+		 String inputMsg = inputMsgView.toString();
+		 chatFrag.recevieMessage(inputMsg);
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		
+		return super.onOptionsItemSelected(item);
+	}
+
+	/**
+	 * A placeholder fragment containing a simple view.
+	 */
+	public static class ChatScreenFragment extends ListFragment {
+
+        private ArrayAdapter<String> msgs_adapter;
+        private ArrayList<String> msgs;
+        
+		public ChatScreenFragment () {
+		}
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_chat_screen, container, false);
+            msgs = new ArrayList<String>(); 
+            msgs_adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.chat_screen_self_msg, R.id.text, msgs);
+            setListAdapter(msgs_adapter);
+          return rootView;
+        }
+        
+
+        @Override
+        public void onListItemClick(ListView l, View v, int position, long id) {
+          // do something with the data
+        	msgs.remove(position);
+        	msgs_adapter.notifyDataSetChanged();
+        }
+        
+        public void recevieMessage(String msg) {
+        	msgs.add(msg);
+        	msgs_adapter.notifyDataSetChanged();
+        }
+	}
+
+}
